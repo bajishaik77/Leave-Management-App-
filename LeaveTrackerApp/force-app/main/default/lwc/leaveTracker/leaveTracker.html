@@ -1,0 +1,22 @@
+<template>
+  <lightning-card title="My Leave Requests">
+    <div class="slds-p-around_medium">
+      <!-- New Request Form -->
+      <lightning-record-edit-form object-api-name="LeaveRequest__c"
+                                  onsuccess={handleSuccess}>
+        <div class="slds-grid slds-wrap">
+          <lightning-input-field field-name="From_Date__c"></lightning-input-field>
+          <lightning-input-field field-name="To_Date__c"></lightning-input-field>
+          <lightning-input-field field-name="Reason__c"></lightning-input-field>
+        </div>
+        <lightning-button type="submit" label="Submit Request"
+                          class="slds-m-top_small"></lightning-button>
+      </lightning-record-edit-form>
+    </div>
+    <lightning-datatable key-field="id"
+                         data={leaves}
+                         columns={columns}
+                         hide-checkbox-column>
+    </lightning-datatable>
+  </lightning-card>
+</template>
